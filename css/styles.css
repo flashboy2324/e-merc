@@ -139,3 +139,19 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.incomplete {
+  border-color: red;
+}
+
+input {
+  border-radius: 10px;
+}
+
+input[type=text]:hover, input[type=password]:hover, input[type=submit]:hover, input[type=chaeckbox]:hover{
+  border-color: rgba(25, 190, 190, 0.705);
+}
+
+input[type=text], input[type=password] {
+  height: 40px;
+}

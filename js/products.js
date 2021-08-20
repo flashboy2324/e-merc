@@ -1,37 +1,58 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-const products_url = "https://japdevdep.github.io/ecommerce-api/product/all.json";
+
+
+var productsArray = [];
 
 
 
 
-document.addEventListener("DOMContentLoaded", function cargarListado(url) {
-    document.getElementById("container p-5").innerHTML = "";
-    fetch(url)
-        .then(response => response.json())
-            .then (data=> {
 
-                data.forEach(element => {
-                    let ul = "";
-                    ul = ` 
-                         <ul>
-                         <li> ` + element.name + ` </li>
-                         <li> ` + element.description + ` </li>
-                         <li> ` + element.cost + ` </li>
-                         <li> ` + postear(element.imgSrc) + ` </li>
-                         <ul>
-                         `
 
-                document.getElementById("container p-5").innerHTML += "ul";    
-                    
-                });
+function showProductsList(){
 
-            })
-            .catch(error => alert("Hubo un error: " + error));
+    let htmlContentToAppend = "";
+    document.getElementById("products").innerHTML = "";
+    for(let i = 0; i < productsArray.length; i++){
+        let product = productsArray[i];
+
+
+            htmlContentToAppend += `
+            <a href="product-info.html" class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ product.name +`</h4>
+                            <small class="text-muted">` + product.soldCount + ` vendidos</small>
+                        </div>
+                        <p class="mb-1">` + product.description + `</p>
+                        <p class="mb-1">` + product.currency + ` ` + product.cost + `</p>
+                    </div>
+                </div>
+            </a>
+            `
+        
+
+        document.getElementById("products").innerHTML = htmlContentToAppend;
+    }
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if(resultObj.status === "ok") {
+            productsArray = resultObj.data;
+        
+     
+        showProductsList();
+
+        }
+    });
 
 });
 
-function postear(element.imgSrc){
-    return ( ` <img src= (element.imgSrc)>`)
-}
