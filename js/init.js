@@ -40,6 +40,42 @@ var getJSONData = function(url){
     });
 }
 
+function guardarDatos() {
+
+    
+  let mis_datos = document.getElementById("email").value 
+       
+  let mis_datos_json = JSON.stringify(mis_datos);
+
+  localStorage.setItem("mis_datos", mis_datos_json);
+}
+
+
+document.addEventListener("DOMContentLoaded", function recuperarDatos() {
+
+  
+  if (localStorage.getItem("mis_datos")) {
+
+      
+      mis_datos_json = localStorage.getItem("mis_datos");
+
+      
+      mis_datos = JSON.parse(mis_datos_json);
+
+      
+      document.getElementById("usuario").innerHTML = mis_datos;
+    
+          
+          
+
+  } 
+  
+  else{
+      document.getElementById("usuario").innerHTML = "No hay datos almacenados";
+  }
+
+});
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
