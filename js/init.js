@@ -81,3 +81,5 @@ document.addEventListener("DOMContentLoaded", function recuperarDatos() {
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 });
+
+
