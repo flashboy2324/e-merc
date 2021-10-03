@@ -40,9 +40,9 @@ function sortProducts(criteria, array){
     return result;
 }
 
-function tomarName(name){
-    localStorage.setItem(`info`, JSON.stringify({productName : name}));
-    window.location = "product-info.html";
+function tomarName(id){
+    localStorage.setItem('info', JSON.stringify({productId : id}));
+    
 }
 
 
@@ -59,7 +59,7 @@ function showProductsList(){
 
 
             htmlContentToAppend += `
-            <a href="product-info.html" onclick= "tomarName(`+ product.name +`)" class="list-group-item list-group-item-action">
+            <a href="product-info.html" onclick= "tomarName(`+ product.id +`)" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
