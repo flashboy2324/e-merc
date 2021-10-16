@@ -177,3 +177,7 @@ input[type=text], input[type=password] {
 .star-rating input[type=radio]:checked ~ label {
   color: #ffbf00
 }
+
+.celeste {
+  background-color: #17A2b8;
+}
