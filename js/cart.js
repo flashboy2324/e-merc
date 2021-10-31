@@ -14,7 +14,7 @@ function showArticles(array){
         
 
             htmlContentToAppend += `
-            <div class="container celeste">
+  <div class="container celeste">
     <div class="row p-2">
       <div class="col-2">
         <div class="dropdown">

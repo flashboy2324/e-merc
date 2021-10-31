@@ -59,7 +59,7 @@ function showProductsList(){
 
 
             htmlContentToAppend += `
-            <a href="product-info.html" onclick= "tomarName(`+ product.id +`)" class="list-group-item list-group-item-action">
+            <a href="product-info.html" onclick= "tomarName(`+ product.id +`)" class="list-group-item list-group-item-action  d-xl-none d-block">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
@@ -74,6 +74,21 @@ function showProductsList(){
                     </div>
                 </div>
             </a>
+
+            
+           <div class="col-3"> 
+            <div class="card d-none d-xl-block " style="width: 18rem;">
+                <img src="` + product.imgSrc + `" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">`+ product.name +`</h5>
+                <p class="card-text">` + product.description + `</p>
+                <p class="card-text">` + product.currency + ` ` + product.cost + `</p>
+                <small class="text-muted card-text">` + product.soldCount + ` vendidos</small>
+                <a href="product-info.html" class="btn btn-primary" onclick= "tomarName(`+ product.id +`)">Mas informacion</a>
+                </div>
+            </div>
+           </div>
+
             `
             }
 
